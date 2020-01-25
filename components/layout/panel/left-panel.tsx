@@ -1,159 +1,246 @@
 import React from "react";
-import {AdminCategory} from "../../../common/constant";
+import {AdminCategory} from "../../../common/constant/admin-category";
+import Link from "next/link";
+import {useRouter} from "next/router";
 
+/**
+ * Left Navbar of the layout
+ */
 export default function LeftPanel() {
+  const currentCategory = useRouter().route.split('/')[1];
+
+  function activeIfCurrentCategory(category: AdminCategory): 'active' | '' {
+    return (currentCategory === category) ? 'active' : ''
+  }
+
   return (
+    <>
     <aside id="left-panel" className="left-panel">
       <nav className="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" className="main-menu collapse navbar-collapse">
           <ul className="nav navbar-nav">
 
-            {/*TODO added active left category dynamically*/}
-            <li className='active'>
-              <a href="index.html"><i className="menu-icon fa fa-laptop"/>{AdminCategory.Dashboard}</a>
+            <li className={activeIfCurrentCategory(AdminCategory.Dashboard)}>
+              <Link href={`/${AdminCategory.Dashboard}`}>
+                <a><i className="menu-icon fa fa-laptop"/> Dashboard</a>
+              </Link>
             </li>
 
             <li className="menu-title">UI elements</li>
 
-            <li className='menu-item-has-children dropdown'>
+            <li className={`menu-item-has-children dropdown ${activeIfCurrentCategory(AdminCategory.Components)}`}>
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i className="menu-icon fa fa-cogs"/>{AdminCategory.Components}
+                <i className="menu-icon fa fa-cogs"/>Components
               </a>
 
               <ul className="sub-menu children dropdown-menu">
                 <li>
-                  <i className="fa fa-puzzle-piece"/><a href="ui-buttons.html">Buttons</a>
+                  <i className="fa fa-puzzle-piece"/>
+                  <Link href={`/${AdminCategory.Components}/buttons`}>
+                    <a>Buttons</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fa fa-id-badge"/><a href="ui-badges.html">Badges</a>
+                  <i className="fa fa-id-badge"/>
+                  <Link href={`/${AdminCategory.Components}/badges`}>
+                    <a>Badges</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fa fa-bars"/><a href="ui-tabs.html">Tabs</a>
+                  <i className="fa fa-bars"/>
+                  <Link href={`/${AdminCategory.Components}/tabs`}>
+                    <a>Tabs</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fa fa-id-card-o"/><a href="ui-cards.html">Cards</a>
+                  <i className="fa fa-id-card-o"/>
+                  <Link href={`/${AdminCategory.Components}/cards`}>
+                    <a>Cards</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fa fa-exclamation-triangle"/><a href="ui-alerts.html">Alerts</a>
+                  <i className="fa fa-exclamation-triangle"/>
+                  <Link href={`/${AdminCategory.Components}/alerts`}>
+                    <a>Alerts</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fa fa-spinner"/><a href="ui-progressbar.html">Progress Bars</a>
+                  <i className="fa fa-spinner"/>
+                  <Link href={`/${AdminCategory.Components}/progressbar`}>
+                    <a>Progress Bars</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fa fa-fire"/><a href="ui-modals.html">Modals</a>
+                  <i className="fa fa-fire"/>
+                  <Link href={`/${AdminCategory.Components}/modals`}>
+                    <a>Modals</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fa fa-book"/><a href="ui-switches.html">Switches</a>
+                  <i className="fa fa-book"/>
+                  <Link href={`/${AdminCategory.Components}/switches`}>
+                    <a>Switches</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fa fa-th"/><a href="ui-grids.html">Grids</a>
+                  <i className="fa fa-th"/>
+                  <Link href={`/${AdminCategory.Components}/grids`}>
+                    <a>Grids</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fa fa-file-word-o"/><a href="ui-typgraphy.html">Typography</a>
+                  <i className="fa fa-file-word-o"/>
+                  <Link href={`/${AdminCategory.Components}/typography`}>
+                    <a>Typography</a>
+                  </Link>
                 </li>
               </ul>
             </li>
 
-            <li className='menu-item-has-children dropdown'>
+            <li className={`menu-item-has-children dropdown ${activeIfCurrentCategory(AdminCategory.Tables)}`}>
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i className="menu-icon fa fa-table"/>{AdminCategory.Tables}
+                <i className="menu-icon fa fa-table"/>Tables
               </a>
 
               <ul className="sub-menu children dropdown-menu">
                 <li>
-                  <i className="fa fa-table"/><a href="tables-basic.html">Basic Table</a>
+                  <i className="fa fa-table"/>
+                  <Link href={`/${AdminCategory.Tables}/basic`}>
+                    <a>Basic Table</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fa fa-table"/><a href="tables-data.html">Data Table</a>
+                  <i className="fa fa-table"/>
+                  <Link href={`/${AdminCategory.Tables}/data`}>
+                    <a>Data Table</a>
+                  </Link>
                 </li>
               </ul>
             </li>
 
-            <li className='menu-item-has-children dropdown'>
+            <li className={`menu-item-has-children dropdown ${activeIfCurrentCategory(AdminCategory.Forms)}`}>
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i className="menu-icon fa fa-th"/>{AdminCategory.Forms}
+                <i className="menu-icon fa fa-th"/>Forms
               </a>
 
               <ul className="sub-menu children dropdown-menu">
                 <li>
-                  <i className="menu-icon fa fa-th"/><a href="forms-basic.html">Basic Form</a>
+                  <i className="menu-icon fa fa-th"/>
+                  <Link href={`/${AdminCategory.Forms}/basic`}>
+                    <a>Basic Form</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="menu-icon fa fa-th"/><a href="forms-advanced.html">Advanced Form</a>
+                  <i className="menu-icon fa fa-th"/>
+                  <Link href={`/${AdminCategory.Forms}/advanced`}>
+                    <a>Advanced Form</a>
+                  </Link>
                 </li>
               </ul>
             </li>
 
             <li className="menu-title">Icons</li>
 
-            <li className='menu-item-has-children dropdown'>
+            <li className={`menu-item-has-children dropdown ${activeIfCurrentCategory(AdminCategory.Icons)}`}>
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i className="menu-icon fa fa-tasks"/>{AdminCategory.Icons}
+                <i className="menu-icon fa fa-tasks"/>Icons
               </a>
 
               <ul className="sub-menu children dropdown-menu">
                 <li>
-                  <i className="menu-icon fa fa-fort-awesome"/><a href="font-fontawesome.html">Font Awesome</a>
+                  <i className="menu-icon fa fa-fort-awesome"/>
+                  <Link href={`/${AdminCategory.Icons}/font-awesome`}>
+                    <a>Font Awesome</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="menu-icon ti-themify-logo"/><a href="font-themify.html">Themefy Icons</a>
+                  <i className="menu-icon ti-themify-logo"/>
+                  <Link href={`/${AdminCategory.Icons}/themify`}>
+                    <a>Themify Icons</a>
+                  </Link>
                 </li>
               </ul>
             </li>
 
-            <li>
-              <a href="widgets.html"> <i className="menu-icon ti-email"></i>Widgets </a>
+            <li className={activeIfCurrentCategory(AdminCategory.Widgets)}>
+              <Link href={`/${AdminCategory.Widgets}`}>
+                <a><i className="menu-icon ti-email"/>Widgets</a>
+              </Link>
             </li>
 
-            <li className='menu-item-has-children dropdown'>
+            <li className={`menu-item-has-children dropdown ${activeIfCurrentCategory(AdminCategory.Charts)}`}>
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i className="menu-icon fa fa-bar-chart"/>{AdminCategory.Charts}
+                <i className="menu-icon fa fa-bar-chart"/>Charts
               </a>
 
               <ul className="sub-menu children dropdown-menu">
                 <li>
-                  <i className="menu-icon fa fa-line-chart"/><a href="charts-chartjs.html">Chart JS</a>
+                  <i className="menu-icon fa fa-line-chart"/>
+                  <Link href={`/${AdminCategory.Charts}/chartjs`}>
+                    <a>Chart JS</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="menu-icon fa fa-area-chart"/><a href="charts-flot.html">Flot Chart</a>
+                  <i className="menu-icon fa fa-area-chart"/>
+                  <Link href={`/${AdminCategory.Charts}/flot`}>
+                    <a>Flot Chart</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="menu-icon fa fa-pie-chart"/><a href="charts-peity.html">Peity Chart</a>
+                  <i className="menu-icon fa fa-pie-chart"/>
+                  <Link href={`/${AdminCategory.Charts}/peity`}>
+                    <a>Peity Chart</a>
+                  </Link>
                 </li>
               </ul>
             </li>
 
-            <li className='menu-item-has-children dropdown'>
+            <li className={`menu-item-has-children dropdown ${activeIfCurrentCategory(AdminCategory.Maps)}`}>
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i className="menu-icon fa fa-area-chart"></i>{AdminCategory.Maps}
+                <i className="menu-icon fa fa-map-marker"></i>Maps
               </a>
 
               <ul className="sub-menu children dropdown-menu">
                 <li>
-                  <i className="menu-icon fa fa-map-o"/><a href="maps-gmap.html">Google Maps</a>
+                  <i className="menu-icon fa fa-map-o"/>
+                  <Link href={`/${AdminCategory.Maps}/google`}>
+                    <a>Google Maps</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="menu-icon fa fa-street-view"/><a href="maps-vector.html">Vector Maps</a>
+                  <i className="menu-icon fa fa-street-view"/>
+                  <Link href={`/${AdminCategory.Maps}/vector`}>
+                    <a> Vector Maps</a>
+                  </Link>
                 </li>
               </ul>
             </li>
 
             <li className="menu-title">Extras</li>
 
-            <li className='menu-item-has-children dropdown'>
+            <li className={`menu-item-has-children dropdown ${activeIfCurrentCategory(AdminCategory.Pages)}`}>
               <a href="#" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i className="menu-icon fa fa-glass"/>{AdminCategory.Pages}
+                <i className="menu-icon fa fa-glass"/>Pages
               </a>
 
               <ul className="sub-menu children dropdown-menu">
                 <li>
-                  <i className="menu-icon fa fa-sign-in"/><a href="page-login.html">Login</a>
+                  <i className="menu-icon fa fa-sign-in"/>
+                  <Link href={`/${AdminCategory.Pages}/login`}>
+                    <a>Login</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="menu-icon fa fa-sign-in"/><a href="page-register.html">Register</a>
+                  <i className="menu-icon fa fa-sign-in"/>
+                  <Link href={`/${AdminCategory.Pages}/register`}>
+                    <a>Register</a>
+                  </Link>
                 </li>
                 <li>
-                  <i className="menu-icon fa fa-paper-plane"/><a href="pages-forget.html">Forget Pass</a>
+                  <i className="menu-icon fa fa-paper-plane"/>
+                  <Link href={`/${AdminCategory.Pages}/forget`}>
+                    <a>Forget Pass</a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -161,5 +248,6 @@ export default function LeftPanel() {
         </div>
       </nav>
     </aside>
+    </>
   )
 }
