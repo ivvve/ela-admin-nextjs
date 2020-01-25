@@ -48,7 +48,7 @@ export default function HeaderRight() {
             <div className="dropdown-menu" aria-labelledby="message">
               <p className="red">You have 4 Mails</p>
               <a className="dropdown-item media" href="#">
-                <span className="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"/></span>
+                <span className="photo media-left"><img alt="avatar" src="/images/avatar/1.jpg"/></span>
                 <div className="message media-body">
                   <span className="name float-left">Jonathan Smith</span>
                   <span className="time float-right">Just now</span>
@@ -56,7 +56,7 @@ export default function HeaderRight() {
                 </div>
               </a>
               <a className="dropdown-item media" href="#">
-                <span className="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"/></span>
+                <span className="photo media-left"><img alt="avatar" src="/images/avatar/2.jpg"/></span>
                 <div className="message media-body">
                   <span className="name float-left">Jack Sanders</span>
                   <span className="time float-right">5 minutes ago</span>
@@ -64,7 +64,7 @@ export default function HeaderRight() {
                 </div>
               </a>
               <a className="dropdown-item media" href="#">
-                <span className="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"/></span>
+                <span className="photo media-left"><img alt="avatar" src="/images/avatar/3.jpg"/></span>
                 <div className="message media-body">
                   <span className="name float-left">Cheryl Wheeler</span>
                   <span className="time float-right">10 minutes ago</span>
@@ -72,7 +72,7 @@ export default function HeaderRight() {
                 </div>
               </a>
               <a className="dropdown-item media" href="#">
-                <span className="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"/></span>
+                <span className="photo media-left"><img alt="avatar" src="/images/avatar/4.jpg"/></span>
                 <div className="message media-body">
                   <span className="name float-left">Rachel Santos</span>
                   <span className="time float-right">15 minutes ago</span>
@@ -86,7 +86,7 @@ export default function HeaderRight() {
         <div className="user-area dropdown float-right">
           <a href="#" className="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false">
-            <img className="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar"/>
+            <img className="user-avatar rounded-circle" src="/images/admin.jpg" alt="User Avatar"/>
           </a>
 
           <div className="user-menu dropdown-menu">
