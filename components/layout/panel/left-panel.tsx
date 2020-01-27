@@ -66,7 +66,7 @@ export default function LeftPanel() {
                 </li>
                 <li>
                   <i className="fa fa-spinner"/>
-                  <Link href={`/${AdminCategory.Components}/progressbar`}>
+                  <Link href={`/${AdminCategory.Components}/progress-bars`}>
                     <a>Progress Bars</a>
                   </Link>
                 </li>
